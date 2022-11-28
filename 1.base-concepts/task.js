@@ -1,31 +1,34 @@
-"use strict";
+'use strict';
 function solveEquation(a, b, c) {
   let arr = [];
   let d = Math.pow(b, 2) - 4 * a * c;
   if (d < 0) {
     arr = [];
   }
+
   if (d === 0) {
     arr = [(b * (-1)) / ( 2 * a)];
   }
+
   if (d > 0) {
     arr = [((b * (-1)) + Math.sqrt(d) ) / (2 * a), ((b * (-1)) - Math.sqrt(d) ) / (2 * a)];
   }
+  
   return arr;
 }
 
 function calculateTotalMortgage(percent, contribution, amount, countMonths) {
   if (isNaN(percent)) {
-    return "Аргумент 'Процентная ставка' введён некорректно";
-    }
+    return false;
+  }
   
   if (isNaN(contribution)) {
-    return "Аргумент 'Начальный взнос' введён некорректно";
-    }
+    return false;
+  }
   
   if (isNaN(amount)) {
-    return "Аргумент 'Общая стоимость' введён некорректно";
-    }
+    return false;
+  }
 
   let convertedPercent = percent / 100;
   let monthlyPercent = convertedPercent / 12;
